@@ -1,1 +1,1 @@
-# javaPassworld
+# javaPassword
