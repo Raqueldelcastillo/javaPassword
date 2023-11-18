@@ -91,19 +91,19 @@ var upperCasedCharacters = [
 // Function to generate password with user input
 function generatePassword() {
   var choisenCharacters = [];
-  if (confirm("special characteres?")) {
+  if (confirm("Special characteres?")) {
     choisenCharacters = choisenCharacters.concat(specialCharacters);
   }
-  if (confirm("upper characteres?")) {
+  if (confirm("Upper characteres?")) {
     choisenCharacters = choisenCharacters.concat(upperCasedCharacters);
   }
-  if (confirm("lower characteres?")) {
+  if (confirm("Lower characteres?")) {
     choisenCharacters = choisenCharacters.concat(lowerCasedCharacters);
   }
   if (confirm("numeric characteres?")) {
     choisenCharacters = choisenCharacters.concat(numericCharacters);
   }
-  var length = prompt("choose lenght between 8 and 128");
+  var length = prompt("Choose lenght between 8 and 128");
 
   var generatedPassword = "";
   for (let i = 0; i < length; i++) {
