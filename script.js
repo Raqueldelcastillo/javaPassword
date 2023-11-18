@@ -88,14 +88,31 @@ var upperCasedCharacters = [
   "Z",
 ];
 
-// Function to prompt user for password options
-function getPasswordOptions() {}
-
-// Function for getting a random element from an array
-function getRandom(arr) {}
-
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  var choisenCharacters = [];
+  if (confirm("special characteres?")) {
+    choisenCharacters = choisenCharacters.concat(specialCharacters);
+  }
+  if (confirm("upper characteres?")) {
+    choisenCharacters = choisenCharacters.concat(upperCasedCharacters);
+  }
+  if (confirm("lower characteres?")) {
+    choisenCharacters = choisenCharacters.concat(lowerCasedCharacters);
+  }
+  if (confirm("numeric characteres?")) {
+    choisenCharacters = choisenCharacters.concat(numericCharacters);
+  }
+  var length = prompt("choose lenght between 8 and 128");
+
+  var generatedPassword = "";
+  for (let i = 0; i < length; i++) {
+    generatedPassword +=
+      choisenCharacters[Math.floor(Math.random() * choisenCharacters.length)];
+  }
+  return generatedPassword;
+  // return "fj49023 mru4032cjm8r90342"
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -110,67 +127,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// Function to prompt user for password options
-// return the array that contains all the possible characters based on user's preferences
-// or perhaps return an object
-// for example, { length: 50, lowercase: true, uppercase: false, numeric: true, special: false }
-function getPasswordOptions() {
-  // start with an empty array
-  // use the prompt function to ask the user
-  // use if statements to evaluate if user has met criteria
-  //   for example, ensure that the input is a number between 8 and 128, inclusive
-  //   Use "Number" to convert a string to a number
-  //     like
-  //           var userLength = prompt("how long?")
-  //           userLength = Number(userLength)
-  //     or
-  //           userLength = parseInt(userLength)
-  //     or
-  //           userLength = +userLength
-  //
-  // store what user says on confirms/alerts
-  // use confirm statements
-  //   if confirm returns true, push some information about the character set into the array
-  //   ['lowercase', 'uppercase']
-  //   ['lowercase', 'symbols']
-  //   ['a','b','c','d',.......,'A','B','C']
-  //   though it would be dodgy, append the length
-  return {
-    length: 50,
-    lowercase: true,
-    uppercase: false,
-    numeric: true,
-    special: false,
-  };
-}
-
-// Function for getting a random element from an array
-function getRandom(arr) {
-  ["a", "b", "c", "d", "e"];
-  // build an array of all possible options based on user preferences
-  // user wants 20 characters in their password
-  //   upper/lower/numeric ==> 26 + 26 + 10 = 62
-}
-
-// Function to generate password with user input
-function generatePassword() {}
-// get the password options
-var options = getPasswordOptions();
-
-// connect all the arrays that the user said they want to use
-// use conditionals to choose which arrays to concatenate
-// for example, if they want the special characters and the lowercase characters,
-//    put those arrays together
-
-// use the user's input for length to generate that number of random elements from the array
-// MAYBE TOO COMPLICATED: divide the user requested length by the number of different character classes so that
-//    the password is evenly divided among the types of characters
-// BUT CONSIDER
-//    How do we ensure that the password contains at least one of each character type
-//    How important is that?
-// get the random one
-
-// need to loop => the number of times the user requested for a length of a password!
-
-// this function must RETURN the generated password as a string
